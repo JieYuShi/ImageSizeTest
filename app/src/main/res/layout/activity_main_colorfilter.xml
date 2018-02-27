@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.xishuang.imagesizetest.MainActivity">
+
+    <ImageView
+        android:id="@+id/img1"
+        android:layout_width="100dp"
+        android:layout_height="150dp"
+        android:src="@drawable/bg5" />
+
+    <ImageView
+        android:id="@+id/img2"
+        android:layout_width="100dp"
+        android:layout_height="150dp"
+        android:src="@drawable/bg5" />
+
+    <include
+        layout="@layout/include_layout"/>
+
+    <!--<ViewStub-->
+        <!--android:id="@+id/include_tag"-->
+        <!--android:layout="@layout/include_layout"-->
+        <!--android:layout_width="150dp"-->
+        <!--android:layout_height="match_parent"-->
+        <!--android:layout_gravity="center" />-->
+</LinearLayout>

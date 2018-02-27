@@ -10,7 +10,7 @@ import android.util.Log;
 import android.widget.ImageView;
 
 public class MainActivity extends AppCompatActivity {
-    private static final String TAG = "MainActivity";
+    private static final String TAG = "TouchActivity";
     private ImageView img;
 
     @Override
