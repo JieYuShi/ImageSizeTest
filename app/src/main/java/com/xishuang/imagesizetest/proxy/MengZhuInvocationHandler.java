@@ -1,7 +1,5 @@
 package com.xishuang.imagesizetest.proxy;
 
-import android.util.Log;
-
 import java.lang.reflect.InvocationHandler;
 import java.lang.reflect.Method;
 
@@ -10,15 +8,17 @@ import java.lang.reflect.Method;
  * Date:2018.02.07
  * Des:具体的代理逻辑实现
  */
-public class StudenInvocationHandler implements InvocationHandler {
+public class MengZhuInvocationHandler implements InvocationHandler {
 
     /**
      * InvocationHandler持有的被代理对象
      */
-    private Person target;
+    private IWuDang mWuDangMan;
+    private IShaolin mShaolinMan;
 
-    StudenInvocationHandler(Person target) {
-        this.target = target;
+    MengZhuInvocationHandler(IWuDang wuDang, IShaolin shaolin) {
+        mWuDangMan = wuDang;
+        mShaolinMan = shaolin;
     }
 
     /**
@@ -30,12 +30,12 @@ public class StudenInvocationHandler implements InvocationHandler {
      */
     @Override
     public Object invoke(Object proxy, Method method, Object[] args) throws Throwable {
-        Log.d("息霜", "class:" + proxy.getClass().getName() + " method:" + method.getName());
-        if (method.getName().equals("submitMoney")) {
-            //代理过程中插入监测方法,计算该方法耗时
-            MonitorUtil.start();
-            method.invoke(target, args);
-            MonitorUtil.finish(method.getName());
+        if (method.getName().equals("playTaijiquan")) {
+            System.out.println("给自己加戏-动态代理");
+            mWuDangMan.playTaijiquan();
+        } else if (method.getName().equals("playYiGinChing")) {
+            System.out.println("给自己加戏-动态代理");
+            mShaolinMan.playYiGinChing();
         }
         return proxy;
     }
