@@ -26,7 +26,7 @@
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".proxy.ProxyActivity">
+        <activity android:name=".dragrecycleview.DragRecycleViewActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -43,6 +43,7 @@
         <activity android:name=".customview.CustomActivity" />
         <activity android:name=".colorfilter.ColorFilterActivity" />
         <activity android:name=".jobscheduler.JobSchedulerActivity" />
+        <activity android:name=".proxy.ProxyActivity" />
 
         <service android:name=".jobscheduler.JobSchedulerService"
             android:permission="android.permission.BIND_JOB_SERVICE"/>
