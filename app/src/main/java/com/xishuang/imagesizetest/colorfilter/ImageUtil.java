@@ -1,5 +1,8 @@
 package com.xishuang.imagesizetest.colorfilter;
 
+import android.content.Context;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.graphics.ColorMatrix;
 import android.graphics.ColorMatrixColorFilter;
 import android.graphics.drawable.Drawable;
@@ -27,5 +30,11 @@ public class ImageUtil {
 //            imageView.getDrawable().setColorFilter(lightingColorFilter);
             drawable.setColorFilter(new ColorMatrixColorFilter(new ColorMatrix(targetMatrix)));
         }
+    }
+
+    public static void displayImageSobel(Context context, ImageView imageView, int res_id) {
+        Bitmap bitmap = BitmapFactory.decodeResource(context.getResources(), res_id);
+        bitmap = SobelUtils.Sobel(bitmap);
+        imageView.setImageBitmap(bitmap);
     }
 }

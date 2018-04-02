@@ -29,7 +29,8 @@ public class ColorFilterActivity extends AppCompatActivity {
         imageView2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                ImageUtil.displayImage(imageView2, R.drawable.bg5);
+//                ImageUtil.displayImage(imageView2, R.drawable.bg5);
+                ImageUtil.displayImageSobel(getApplicationContext(), imageView2, R.drawable.bg5);
             }
         });
 
