@@ -8,6 +8,7 @@ import android.graphics.LightingColorFilter;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.view.View;
 import android.widget.ImageView;
 import android.widget.Toast;
 
@@ -23,20 +24,14 @@ public class ColorFilterActivity extends AppCompatActivity {
         int memClass = activityManager.getMemoryClass();
         int memLargeClass = activityManager.getLargeMemoryClass();
         Toast.makeText(this, memClass + "M " + memLargeClass + "M", Toast.LENGTH_SHORT).show();
-        ImageView imageView1 = (ImageView) findViewById(R.id.img1);
-        if (imageView1 == null) return;
-        Drawable drawable = imageView1.getDrawable();
-        float[] targetMatrix = getSelfColorFilter();
-        if (drawable != null) {
-//            ColorFilter lightingColorFilter = new LightingColorFilter(0xffffff, 0x003000);
-//            imageView1.getDrawable().setColorFilter(lightingColorFilter);
-            drawable.setColorFilter(new ColorMatrixColorFilter(targetMatrix));
-        }
 
-    }
+        final ImageView imageView2 = findViewById(R.id.img2);
+        imageView2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                ImageUtil.displayImage(imageView2, R.drawable.bg5);
+            }
+        });
 
-    private float[] getSelfColorFilter() {
-        float[] targetMatrix = SpecialMatrix.getDiPian();
-        return targetMatrix;
     }
 }
