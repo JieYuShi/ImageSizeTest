@@ -21,4 +21,10 @@
         android:layout_marginTop="100dp"
         android:layout_width="400dp"
         android:layout_height="300dp" />
+
+    <com.xishuang.imagesizetest.customview.CustomView
+        android:id="@+id/img3"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:src="@drawable/bg2"/>
 </LinearLayout>

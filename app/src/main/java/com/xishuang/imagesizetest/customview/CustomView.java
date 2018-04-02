@@ -5,15 +5,19 @@ import android.content.Context;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
+import android.graphics.drawable.BitmapDrawable;
 import android.os.Build;
 import android.support.annotation.Nullable;
+import android.support.v7.widget.AppCompatButton;
+import android.support.v7.widget.AppCompatImageView;
 import android.util.AttributeSet;
 import android.view.View;
+import android.widget.ImageView;
 
 /**
- * Created by xishuang on 2018/1/29.
+ * Created by xishuang on 2018/3/21.
  */
-public class CustomView extends View {
+public class CustomView extends AppCompatImageView {
 
     private Paint mPaint;
 

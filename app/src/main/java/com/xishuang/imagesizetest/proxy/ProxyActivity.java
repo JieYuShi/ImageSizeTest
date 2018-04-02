@@ -31,9 +31,46 @@ public class ProxyActivity extends Activity {
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        Log.d("ProxyActivity", "onCreate");
         setContentView(R.layout.activity_main_colorfilter);
 //        staticProxy();
         daynamicProxy();
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        Log.d("ProxyActivity", "onStart");
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        Log.d("ProxyActivity", "onResume");
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        Log.d("ProxyActivity", "onPause");
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+        Log.d("ProxyActivity", "onStop");
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        Log.d("ProxyActivity", "onDestroy");
+    }
+
+    @Override
+    protected void onRestart() {
+        super.onRestart();
+        Log.d("ProxyActivity", "onRestart");
     }
 
     /**

@@ -22,20 +22,6 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.CustomeVie
         this.list = list;
     }
 
-    //先声明一个int成员变量
-    private int thisPosition;
-
-    //再定义一个int类型的返回值方法
-    public int getthisPosition() {
-        return thisPosition;
-    }
-
-    //其次定义一个方法用来绑定当前参数值的方法
-    //此方法是在调用此适配器的地方调用的，此适配器内不会被调用到
-    public void setThisPosition(int thisPosition) {
-        this.thisPosition = thisPosition;
-    }
-
     @Override
     public CustomeViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         LayoutInflater inflater = LayoutInflater.from(context);
