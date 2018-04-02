@@ -6,22 +6,29 @@
     android:orientation="vertical"
     tools:context="com.xishuang.imagesizetest.MainActivity">
 
-    <ImageView
-        android:id="@+id/img1"
-        android:layout_width="100dp"
-        android:layout_height="150dp"
-        android:src="@drawable/bg5" />
-
-    <ImageView
+    <Button
+        android:id="@+id/bt_lighting"
         android:layout_width="200dp"
-        android:layout_height="150dp"
-        android:src="@drawable/bg5" />
+        android:layout_height="50dp"
+        android:textAllCaps="false"
+        android:text="LightingColorFilter"/>
+
+    <Button
+        android:id="@+id/bt_porterduff"
+        android:layout_width="200dp"
+        android:layout_height="50dp"
+        android:textAllCaps="false"
+        android:text="PorterDuffColorFilter"/>
+
+    <Button
+        android:id="@+id/bt_colormatrix"
+        android:layout_width="200dp"
+        android:layout_height="50dp"
+        android:textAllCaps="false"
+        android:text="ColorMatrixColorFilter"/>
 
     <ImageView
-        android:id="@+id/img2"
+        android:id="@+id/img"
         android:layout_width="100dp"
         android:layout_height="150dp" />
-
-    <include
-        layout="@layout/include_layout"/>
 </LinearLayout>
