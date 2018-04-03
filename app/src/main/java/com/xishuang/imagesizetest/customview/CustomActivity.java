@@ -14,8 +14,5 @@ public class CustomActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_custom);
         CustomView imageView = (CustomView) findViewById(R.id.img3);
-        BitmapDrawable drawable = (BitmapDrawable) imageView.getDrawable();
-
-        Log.d("CustomActivity", drawable.toString());
     }
 }

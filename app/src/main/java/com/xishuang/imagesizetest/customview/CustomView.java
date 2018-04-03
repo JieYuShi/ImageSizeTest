@@ -9,7 +9,7 @@ import android.graphics.drawable.BitmapDrawable;
 import android.os.Build;
 import android.support.annotation.Nullable;
 import android.support.v7.widget.AppCompatButton;
-import android.support.v7.widget.AppCompatImageView;
+import android.support.v7.widget.AppCompatTextView;
 import android.util.AttributeSet;
 import android.view.View;
 import android.widget.ImageView;
@@ -17,7 +17,7 @@ import android.widget.ImageView;
 /**
  * Created by xishuang on 2018/3/21.
  */
-public class CustomView extends AppCompatImageView {
+public class CustomView extends AppCompatTextView {
 
     private Paint mPaint;
 

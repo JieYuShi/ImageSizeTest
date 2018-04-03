@@ -30,20 +30,6 @@ public class JobSchedulerActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_colorfilter);
         mJobScheduler = (JobScheduler) getSystemService(Context.JOB_SCHEDULER_SERVICE);
-        ImageView imageView1 = (ImageView) findViewById(R.id.img1);
-        ImageView imageView2 = (ImageView) findViewById(R.id.img2);
-        imageView1.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-//                viewStub = ((ViewStub)findViewById(R.id.include_tag)).inflate();
-            }
-        });
-        imageView2.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-//                viewStub.setVisibility(View.INVISIBLE);
-            }
-        });
     }
 
     private void startJob(){

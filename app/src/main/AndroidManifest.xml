@@ -36,7 +36,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".opengles.OpenGLES20Activity"></activity>
+        <activity android:name=".opengles.OpenGLES20Activity" />
         <activity android:name=".MainActivity" />
         <activity android:name=".touch.TouchActivity" />
         <activity android:name=".rxjava.RxJavaMainActivity" />
@@ -49,7 +49,15 @@
             android:name=".jobscheduler.JobSchedulerService"
             android:permission="android.permission.BIND_JOB_SERVICE" />
 
-        <activity android:name=".colorfilter.LightingActivity"></activity>
+        <activity
+            android:name=".colorfilter.LightingActivity"
+            android:label="LightingColorFilter的使用" />
+        <activity
+            android:name=".colorfilter.PorterDuffActivity"
+            android:label="PorterDuffColorFilter的使用" />
+        <activity
+            android:name=".colorfilter.ColorMatrixActivity"
+            android:label="ColorMatrixColorFilter的使用" />
     </application>
 
 </manifest>

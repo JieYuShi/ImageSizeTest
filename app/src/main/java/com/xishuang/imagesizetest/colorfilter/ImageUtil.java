@@ -3,8 +3,10 @@ package com.xishuang.imagesizetest.colorfilter;
 import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.graphics.ColorFilter;
 import android.graphics.ColorMatrix;
 import android.graphics.ColorMatrixColorFilter;
+import android.graphics.LightingColorFilter;
 import android.graphics.drawable.Drawable;
 import android.widget.ImageView;
 
@@ -26,9 +28,9 @@ public class ImageUtil {
         Drawable drawable = imageView.getDrawable();
         float[] targetMatrix = SpecialMatrix.getHuaiJiu();
         if (drawable != null) {
-//            ColorFilter lightingColorFilter = new LightingColorFilter(0xffffff, 0x003000);
-//            imageView.getDrawable().setColorFilter(lightingColorFilter);
-            drawable.setColorFilter(new ColorMatrixColorFilter(new ColorMatrix(targetMatrix)));
+            ColorFilter lightingColorFilter = new LightingColorFilter(0xffffff, 0x000000);
+            imageView.getDrawable().setColorFilter(lightingColorFilter);
+//            drawable.setColorFilter(new ColorMatrixColorFilter(new ColorMatrix(targetMatrix)));
         }
     }
 
