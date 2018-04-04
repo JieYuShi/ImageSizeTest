@@ -15,7 +15,6 @@ import android.widget.ImageView;
  * Date   : 2018.04.02
  * Desc   :
  */
-
 public class ImageUtil {
 
     /**
@@ -26,7 +25,7 @@ public class ImageUtil {
     public static void displayImage(ImageView imageView, int res_id) {
         imageView.setImageResource(res_id);
         Drawable drawable = imageView.getDrawable();
-        float[] targetMatrix = SpecialMatrix.getHuaiJiu();
+        float[] targetMatrix = SpecialColorMatrix.getHuaiJiu();
         if (drawable != null) {
             ColorFilter lightingColorFilter = new LightingColorFilter(0xffffff, 0x000000);
             imageView.getDrawable().setColorFilter(lightingColorFilter);
@@ -38,5 +37,32 @@ public class ImageUtil {
         Bitmap bitmap = BitmapFactory.decodeResource(context.getResources(), res_id);
         bitmap = SobelUtils.Sobel(bitmap);
         imageView.setImageBitmap(bitmap);
+    }
+
+    /**
+     * 针对特定ColorMatrix实现特殊效果
+     */
+    public static float[] displayImageColorMatrix(ImageView imageView, int mode) {
+        float[] matrix = SpecialColorMatrix.getDefault();
+        switch (mode) {
+            case SpecialColorMatrix.MODE.DEFAULT:
+                matrix = SpecialColorMatrix.getDefault();
+                break;
+            case SpecialColorMatrix.MODE.HUAIJIU:
+                matrix = SpecialColorMatrix.getHuaiJiu();
+                break;
+            case SpecialColorMatrix.MODE.DIPIAN:
+                matrix = SpecialColorMatrix.getDiPian();
+                break;
+            case SpecialColorMatrix.MODE.GRAY:
+                matrix = SpecialColorMatrix.getGray();
+                break;
+            case SpecialColorMatrix.MODE.BRIGHT:
+                matrix = SpecialColorMatrix.getBright();
+                break;
+            default:
+        }
+        imageView.setColorFilter(new ColorMatrixColorFilter(new ColorMatrix(matrix)));
+        return matrix;
     }
 }

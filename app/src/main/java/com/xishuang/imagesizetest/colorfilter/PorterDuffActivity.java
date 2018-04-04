@@ -1,8 +1,6 @@
 package com.xishuang.imagesizetest.colorfilter;
 
-import android.app.Activity;
 import android.graphics.Color;
-import android.graphics.LightingColorFilter;
 import android.graphics.PorterDuff;
 import android.graphics.PorterDuffColorFilter;
 import android.support.v7.app.AppCompatActivity;
@@ -24,9 +22,6 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import static android.graphics.PorterDuff.Mode.CLEAR;
-import static android.graphics.PorterDuff.Mode.DST;
-
 /**
  * Author:xishuang
  * Date:2018.04.03
@@ -34,16 +29,15 @@ import static android.graphics.PorterDuff.Mode.DST;
  */
 public class PorterDuffActivity extends AppCompatActivity implements SeekBar.OnSeekBarChangeListener {
 
-    private SeekBar seekBarR;
-    private SeekBar seekBarG;
-    private SeekBar seekBarB;
-    private SeekBar seekBarA;
+    private SeekBar sBR;
+    private SeekBar sBG;
+    private SeekBar sBB;
+    private SeekBar sBA;
     private ImageView imageView;
     private TextView tvColorText;
     private TextView tvColor;
-    private RecyclerView recyclerView;
 
-    private PorterDuff.Mode mode = DST;
+    private PorterDuff.Mode mode = PorterDuff.Mode.DST;
     private int mColor;
 
     private List<? extends Map<String, ?>> mDataList;
@@ -56,37 +50,35 @@ public class PorterDuffActivity extends AppCompatActivity implements SeekBar.OnS
 
         imageView = (ImageView) findViewById(R.id.porter_duff_img);
         //SeekBar
-        seekBarA = (SeekBar) findViewById(R.id.porter_duff_bar_A);
-        seekBarR = (SeekBar) findViewById(R.id.porter_duff_bar_R);
-        seekBarG = (SeekBar) findViewById(R.id.porter_duff_bar_G);
-        seekBarB = (SeekBar) findViewById(R.id.porter_duff_bar_B);
+        sBA = (SeekBar) findViewById(R.id.porter_duff_bar_A);
+        sBR = (SeekBar) findViewById(R.id.porter_duff_bar_R);
+        sBG = (SeekBar) findViewById(R.id.porter_duff_bar_G);
+        sBB = (SeekBar) findViewById(R.id.porter_duff_bar_B);
 
         //选中的颜色值
         tvColorText = (TextView) findViewById(R.id.porter_duff_color_text);
         tvModeText = (TextView) findViewById(R.id.porter_duff_mode);
         tvColor = (TextView) findViewById(R.id.porter_duff_color);
         //RecyclerView
-        recyclerView = (RecyclerView) findViewById(R.id.porter_duff_recycler_view);
+        RecyclerView recyclerView = (RecyclerView) findViewById(R.id.porter_duff_recycler_view);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         recyclerView.setAdapter(new PorterDuffAdapter());
 
-        seekBarA.setOnSeekBarChangeListener(this);
-        seekBarR.setOnSeekBarChangeListener(this);
-        seekBarG.setOnSeekBarChangeListener(this);
-        seekBarB.setOnSeekBarChangeListener(this);
+        sBA.setOnSeekBarChangeListener(this);
+        sBR.setOnSeekBarChangeListener(this);
+        sBG.setOnSeekBarChangeListener(this);
+        sBB.setOnSeekBarChangeListener(this);
 
         mDataList = getData();
     }
 
     @Override
     public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
-        String addText = "源颜色值(ARGB)：#" + Integer.toHexString(seekBarA.getProgress()) + "-"
-                + Integer.toHexString(seekBarR.getProgress()) + "-"
-                + Integer.toHexString(seekBarG.getProgress()) + "-"
-                + Integer.toHexString(seekBarB.getProgress());
-        mColor = Color.argb(seekBarA.getProgress(), seekBarR.getProgress(),
-                seekBarG.getProgress(),
-                seekBarB.getProgress());
+        String addText = "源颜色值(ARGB)：#" + Integer.toHexString(sBA.getProgress()) + "-"
+                + Integer.toHexString(sBR.getProgress()) + "-"
+                + Integer.toHexString(sBG.getProgress()) + "-"
+                + Integer.toHexString(sBB.getProgress());
+        mColor = Color.argb(sBA.getProgress(), sBR.getProgress(), sBG.getProgress(), sBB.getProgress());
         tvColorText.setText(addText);
         tvColor.setBackgroundColor(mColor);
         //关键代码，设置PorterDuffColorFilter
@@ -108,7 +100,7 @@ public class PorterDuffActivity extends AppCompatActivity implements SeekBar.OnS
      */
     private List<? extends Map<String, ?>> getData() {
         List<Map<String, Object>> data = new ArrayList<>();
-        addItem(data, "CLEAR(Alpha合成)", CLEAR);
+        addItem(data, "CLEAR(Alpha合成)", PorterDuff.Mode.CLEAR);
         addItem(data, "SRC(Alpha合成)", PorterDuff.Mode.SRC);
         addItem(data, "DST(Alpha合成)", PorterDuff.Mode.DST);
         addItem(data, "SRC_OVER(Alpha合成)", PorterDuff.Mode.SRC_OVER);
@@ -156,7 +148,7 @@ public class PorterDuffActivity extends AppCompatActivity implements SeekBar.OnS
                         mode = (PorterDuff.Mode) mDataList.get(position).get("value");
                         Toast.makeText(PorterDuffActivity.this, (String) mDataList.get(position).get("title"), Toast.LENGTH_SHORT).show();
                         imageView.setColorFilter(new PorterDuffColorFilter(mColor, mode));
-                        tvModeText.setText("模式：" +  mDataList.get(position).get("title"));
+                        tvModeText.setText("模式：" + mDataList.get(position).get("title"));
                     }
                 });
             }

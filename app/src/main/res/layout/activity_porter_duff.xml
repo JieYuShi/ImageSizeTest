@@ -37,8 +37,7 @@
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:gravity="center"
-            android:text="颜色值：#ff-ff-ff"
-            android:textAppearance="?android:attr/textAppearanceLarge" />
+            android:text="源颜色值(ARGB)：#ff-ff-ff-ff" />
 
         <TextView
             android:id="@+id/porter_duff_color"
@@ -54,8 +53,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:gravity="center"
-        android:text="模式：DST(Alpha合成)"
-        android:textAppearance="?android:attr/textAppearanceLarge" />
+        android:text="模式：DST(Alpha合成)" />
 
     <LinearLayout
         android:layout_width="match_parent"

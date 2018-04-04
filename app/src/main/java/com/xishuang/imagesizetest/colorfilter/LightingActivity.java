@@ -18,16 +18,19 @@ import com.xishuang.imagesizetest.R;
 public class LightingActivity extends AppCompatActivity implements SeekBar.OnSeekBarChangeListener {
 
     private ImageView imageView;
-    private SeekBar seekBarPlusR;
-    private SeekBar seekBarPlusG;
-    private SeekBar seekBarPlusB;
-    private SeekBar seekBarAddR;
-    private SeekBar seekBarAddG;
-    private SeekBar seekBarAddB;
+    private SeekBar sBPlusA;
+    private SeekBar sBPlusR;
+    private SeekBar sBPlusG;
+    private SeekBar sBPlusB;
+    private SeekBar sBAddA;
+    private SeekBar sBAddR;
+    private SeekBar sBAddG;
+    private SeekBar sBAddB;
     private TextView tvPlusColorText;
     private TextView tvPlusColor;
     private TextView tvAddColorText;
     private TextView tvAddColor;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,44 +39,48 @@ public class LightingActivity extends AppCompatActivity implements SeekBar.OnSee
 
         imageView = (ImageView) findViewById(R.id.lighting_img);
 
-        seekBarPlusR = (SeekBar) findViewById(R.id.lighting_plus_bar_R);
-        seekBarPlusG = (SeekBar) findViewById(R.id.lighting_plus_bar_G);
-        seekBarPlusB = (SeekBar) findViewById(R.id.lighting_plus_bar_B);
+        sBPlusA = (SeekBar) findViewById(R.id.lighting_plus_bar_A);
+        sBPlusR = (SeekBar) findViewById(R.id.lighting_plus_bar_R);
+        sBPlusG = (SeekBar) findViewById(R.id.lighting_plus_bar_G);
+        sBPlusB = (SeekBar) findViewById(R.id.lighting_plus_bar_B);
 
-        seekBarAddR = (SeekBar) findViewById(R.id.lighting_add_bar_R);
-        seekBarAddG = (SeekBar) findViewById(R.id.lighting_add_bar_G);
-        seekBarAddB = (SeekBar) findViewById(R.id.lighting_add_bar_B);
+        sBAddA = (SeekBar) findViewById(R.id.lighting_add_bar_A);
+        sBAddR = (SeekBar) findViewById(R.id.lighting_add_bar_R);
+        sBAddG = (SeekBar) findViewById(R.id.lighting_add_bar_G);
+        sBAddB = (SeekBar) findViewById(R.id.lighting_add_bar_B);
 
         tvPlusColorText = (TextView) findViewById(R.id.lighting_plus_color_text);
         tvPlusColor = (TextView) findViewById(R.id.lighting_plus_color);
         tvAddColorText = (TextView) findViewById(R.id.lighting_add_color_text);
         tvAddColor = (TextView) findViewById(R.id.lighting_add_color);
 
-        seekBarPlusR.setOnSeekBarChangeListener(this);
-        seekBarPlusG.setOnSeekBarChangeListener(this);
-        seekBarPlusB.setOnSeekBarChangeListener(this);
-        seekBarAddR.setOnSeekBarChangeListener(this);
-        seekBarAddG.setOnSeekBarChangeListener(this);
-        seekBarAddB.setOnSeekBarChangeListener(this);
+        sBPlusA.setOnSeekBarChangeListener(this);
+        sBPlusR.setOnSeekBarChangeListener(this);
+        sBPlusG.setOnSeekBarChangeListener(this);
+        sBPlusB.setOnSeekBarChangeListener(this);
+        sBAddA.setOnSeekBarChangeListener(this);
+        sBAddR.setOnSeekBarChangeListener(this);
+        sBAddG.setOnSeekBarChangeListener(this);
+        sBAddB.setOnSeekBarChangeListener(this);
     }
 
     @Override
     public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
-        String plusText = "Plus颜色值：#" + Integer.toHexString(seekBarPlusR.getProgress()) + "-"
-                + Integer.toHexString(seekBarPlusG.getProgress()) + "-"
-                + Integer.toHexString(seekBarPlusB.getProgress());
-        int plusColor = Color.argb(255, seekBarPlusR.getProgress(),
-                seekBarPlusG.getProgress(),
-                seekBarPlusB.getProgress());
+
+        //透明度也加上，透明度不参与计算，所以设置了也是默认无效的
+        String plusText = "Plus颜色值(ARGB)：#" + Integer.toHexString(sBPlusA.getProgress()) + "-"
+                + Integer.toHexString(sBPlusR.getProgress()) + "-"
+                + Integer.toHexString(sBPlusG.getProgress()) + "-"
+                + Integer.toHexString(sBPlusB.getProgress());
+        int plusColor = Color.argb(sBPlusA.getProgress(), sBPlusR.getProgress(), sBPlusG.getProgress(), sBPlusB.getProgress());
         tvPlusColorText.setText(plusText);
         tvPlusColor.setBackgroundColor(plusColor);
 
-        String addText = "Add颜色值：#" + Integer.toHexString(seekBarAddR.getProgress()) + "-"
-                + Integer.toHexString(seekBarAddG.getProgress()) + "-"
-                + Integer.toHexString(seekBarAddB.getProgress());
-        int addColor = Color.argb(255, seekBarAddR.getProgress(),
-                seekBarAddG.getProgress(),
-                seekBarAddB.getProgress());
+        String addText = "Add颜色值(ARGB)：#" + Integer.toHexString(sBAddA.getProgress()) + "-"
+                + Integer.toHexString(sBAddR.getProgress()) + "-"
+                + Integer.toHexString(sBAddG.getProgress()) + "-"
+                + Integer.toHexString(sBAddB.getProgress());
+        int addColor = Color.argb(sBAddA.getProgress(), sBAddR.getProgress(), sBAddG.getProgress(), sBAddB.getProgress());
         tvAddColorText.setText(addText);
         tvAddColor.setBackgroundColor(addColor);
 
