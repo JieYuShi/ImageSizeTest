@@ -29,7 +29,7 @@
         android:largeHeap="true"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".colorfilter.ColorFilterActivity">
+        <activity android:name=".algorithm.AlgorithmActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -58,6 +58,7 @@
         <activity
             android:name=".colorfilter.ColorMatrixActivity"
             android:label="ColorMatrixColorFilter的使用" />
+        <activity android:name=".colorfilter.ColorFilterActivity" />
     </application>
 
 </manifest>
