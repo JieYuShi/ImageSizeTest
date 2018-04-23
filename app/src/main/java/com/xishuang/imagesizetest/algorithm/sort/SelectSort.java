@@ -3,7 +3,7 @@ package com.xishuang.imagesizetest.algorithm.sort;
 /**
  * Author:xishuang
  * Date:2018.04.22
- * Des:选择排序:简单选择排序，初等排序
+ * Des:选择排序:简单选择排序，初等排序{@link HeapSort}
  */
 public class SelectSort extends AbsSort {
     @Override

@@ -7,7 +7,7 @@ import android.widget.TextView;
 
 import com.xishuang.imagesizetest.R;
 import com.xishuang.imagesizetest.algorithm.sort.AbsSort;
-import com.xishuang.imagesizetest.algorithm.sort.QuickSort;
+import com.xishuang.imagesizetest.algorithm.sort.HeapSort;
 
 import java.util.Iterator;
 
@@ -27,14 +27,15 @@ public class AlgorithmActivity extends AppCompatActivity {
     }
 
     private void testSort() {
-        Integer[] arrays = new Integer[]{29, 33, 16, 18, 10, 54, 57, 11, 84, 9812, 23, 48, 68, 77, 1};
+        Integer[] arrays = new Integer[]{1000000, 29, 33, 16, 666, -1, 18, 10, 54, 57, 11, 84, 9812, 23, 48, 68, 77, 1};
 //        AbsSort sort = new BubbleSort();
 //        AbsSort sort = new SelectSort();
 //        AbsSort sort = new InsertSort();
 //        AbsSort sort = new ShellSort();
 //        AbsSort sort = new MergeSort();
 //        AbsSort sort = new MergeBUSort();
-        AbsSort sort = new QuickSort();
+//        AbsSort sort = new QuickSort();
+        AbsSort sort = new HeapSort();
         sort.sort(arrays);
         mContentTv.setText(sort.show(arrays));
     }
