@@ -6,6 +6,7 @@ import android.util.Log;
 import android.widget.TextView;
 
 import com.xishuang.imagesizetest.R;
+import com.xishuang.imagesizetest.algorithm.search.SequentialSearchST;
 import com.xishuang.imagesizetest.algorithm.sort.AbsSort;
 import com.xishuang.imagesizetest.algorithm.sort.HeapSort;
 
@@ -23,7 +24,21 @@ public class AlgorithmActivity extends AppCompatActivity {
 //        testBinarySearch();
 //        testStack();
 //        testQueue();
-        testSort();
+//        testSort();
+        testSequentialSearchST();
+    }
+
+    private void testSequentialSearchST() {
+        SequentialSearchST<String, Integer> st = new SequentialSearchST<String, Integer>();
+        st.put("我", 1);
+        st.put("是", 2);
+        st.put("大", 3);
+        st.put("水", 4);
+        st.put("牛", 5);
+        st.put("是", 8);
+
+        st.print();
+        Log.d("查找算法", st.get("水") + "");
     }
 
     private void testSort() {
